@@ -6,3 +6,54 @@
   margin-top: 20px;
   transition: opacity 0.5s ease-in-out;
 }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #f0f0f0;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+.scroll-hint span {
+  font-size: 2rem; /* Adjust size as needed */
+  color: #fff;
+  display: inline-block;
+  opacity: 50%;
+
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.more-content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0e0e0;
+  text-align: center;
+}
