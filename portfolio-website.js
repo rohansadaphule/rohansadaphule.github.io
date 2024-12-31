@@ -29,6 +29,14 @@ function updateText() {
   }
 }
 
+document.querySelector('.scroll-hint').addEventListener('click', () => {
+  window.scrollBy({
+    top: window.innerHeight,
+    behavior: 'smooth'
+  });
+});
+
+
 // Initialize the text and start the interval
 changingTextElement.textContent = textArray[index];
 setInterval(updateText, 2000); // Change every 2 seconds
