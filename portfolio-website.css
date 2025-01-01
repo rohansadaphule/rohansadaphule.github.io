@@ -51,9 +51,7 @@ body {
 
 .more-content {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex;
   background: #e0e0e0;
   text-align: center;
 }
