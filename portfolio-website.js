@@ -46,7 +46,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Fetch GitHub projects (ignoring "rohansadaphule" repository)
+// Fetch GitHub projects (ignoring "rohansadaphule" repository and including website link below description)
 async function fetchProjects() {
   const username = "rohansadaphule"; // Your GitHub username
   const projectsCount = 4; // Load top 4 projects (change to 3 if you prefer)
@@ -65,12 +65,24 @@ async function fetchProjects() {
       if (repo.name.toLowerCase() === "rohansadaphule" || repo.fork || !repo.description) return;
 
       if (projectCount < projectsCount) { // Ensure we only load up to 4 projects
+        let websiteLink = '';
+        if (repo.homepage && repo.homepage !== '') {
+          websiteLink = `
+                      <p class="mt-2 text-gray-400 text-sm">Website: <a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">${repo.homepage}</a></p>
+                  `;
+        } else {
+          websiteLink = `
+                      <p class="mt-2 text-gray-400 text-sm">Website: Not available</p>
+                  `;
+        }
+
         const projectDiv = document.createElement("div");
         projectDiv.className = "p-6 bg-gray-800 border border-gray-700 rounded-lg shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2";
         projectDiv.innerHTML = `
                   <h3 class="text-2xl font-semibold mb-4">${repo.name}</h3>
                   <p class="mb-4 text-gray-300">${repo.description || 'No description available.'}</p>
-                  <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">View Project →</a>
+                  <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">View on GitHub →</a>
+                  ${websiteLink}
               `;
         projectsList.appendChild(projectDiv);
         projectCount++;
@@ -103,7 +115,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Toggle mobile navigation menu
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  const navMenu = document.getElementById('nav-menu');
+  navMenu.classList.toggle('active');
+});
 
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 768) { // Only on mobile
+      document.getElementById('nav-menu').classList.remove('active');
+    }
+  });
+});
 
 // Initialize the text and start the interval
 changingTextElement.textContent = textArray[index];

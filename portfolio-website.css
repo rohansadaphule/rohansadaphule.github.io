@@ -73,6 +73,46 @@ section {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Navigation bar mobile menu */
+#nav-menu {
+  display: none;
+  /* Default hidden on mobile */
+}
+
+#nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  /* Below the nav bar */
+  left: 0;
+  right: 0;
+  background-color: black;
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+#nav-menu.active li {
+  margin: 0.5rem 0;
+}
+
+#nav-menu.active a {
+  display: block;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Hide hamburger on medium and larger screens */
+@media (min-width: 768px) {
+  #nav-menu {
+    display: flex;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .grid-cols-3 {
@@ -85,7 +125,7 @@ section {
 
   nav ul {
     display: none;
-    /* Hide nav on mobile, optional: add hamburger menu */
+    /* Already handled by #nav-menu */
   }
 
   .text-6xl {
@@ -95,6 +135,44 @@ section {
   .text-2xl {
     font-size: xl;
   }
+}
+
+#nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: black;
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure website link matches GitHub "About" section styling */
+#projects-list .text-gray-400 {
+  font-size: 0.875rem;
+  /* Tailwind text-sm */
+  color: #a0a0a0;
+  /* Slightly lighter gray for consistency */
+}
+
+#projects-list .text-gray-400 a {
+  word-break: break-all;
+  /* Prevent long URLs from breaking layout */
 }
 
 /* Footer gradient enhancement */
