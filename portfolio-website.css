@@ -1,5 +1,53 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Animation for fading in elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+/* Scroll hint animation */
+.animate-bounce {
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Changing text animation */
 .changing-text {
-  font-size: 1.5em;
+  font-size: 2xl;
   font-weight: bold;
   text-align: center;
   color: white;
@@ -7,51 +55,50 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+/* Section styling */
+section {
+  padding-top: 80px;
+  /* Account for fixed nav */
 }
 
-.content {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: #f0f0f0;
+/* Skill and Project cards */
+.skill-card,
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.scroll-hint {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  cursor: pointer;
-  animation: pulse 1.5s infinite;
+.skill-card:hover,
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-.scroll-hint span {
-  font-size: 2rem; /* Adjust size as needed */
-  color: #fff;
-  display: inline-block;
-  opacity: 50%;
-
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: translateY(0);
+/* Responsive design */
+@media (max-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
   }
-  50% {
-    transform: translateY(10px);
+
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    display: none;
+    /* Hide nav on mobile, optional: add hamburger menu */
+  }
+
+  .text-6xl {
+    font-size: 3xl;
+  }
+
+  .text-2xl {
+    font-size: xl;
   }
 }
 
-.more-content {
-  height: 100vh;
-  display: flex;
-  background: #e0e0e0;
-  text-align: center;
+/* Footer gradient enhancement */
+footer {
+  padding-top: 60px;
+  /* Ensure padding for fixed nav */
 }
