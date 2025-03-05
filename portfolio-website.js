@@ -88,6 +88,23 @@ async function fetchProjects() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  let user = "rohansadaphule";
+  let domain = "gmail.com";
+  let email = user + "@" + domain;
+  let mailtoLink = `mailto:${email}`;
+
+  let emailElement = document.getElementById("email-link");
+  let emailText = document.getElementById("email-text");
+
+  if (emailElement && emailText) {
+    emailElement.href = mailtoLink; // Set the href dynamically
+    emailText.textContent = email; // Set the text content
+  }
+});
+
+
+
 // Initialize the text and start the interval
 changingTextElement.textContent = textArray[index];
 setInterval(updateText, 2000); // Change every 2 seconds

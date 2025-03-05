@@ -15,7 +15,12 @@
     <nav class="bg-black text-white p-4 fixed w-full top-0 z-50 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <h2 class="text-2xl font-bold">Rohan Sadaphule</h2>
-            <ul class="flex space-x-6">
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <ul id="nav-menu" class="hidden md:flex space-x-6">
                 <li><a href="#skills" class="hover:text-gray-300 transition">Skills</a></li>
                 <li><a href="#projects" class="hover:text-gray-300 transition">Projects</a></li>
                 <li><a href="#education" class="hover:text-gray-300 transition">Education</a></li>
@@ -31,10 +36,10 @@
             <h1 class="text-6xl font-bold mb-4 animate-fade-in">Rohan Sadaphule</h1>
             <p class="text-2xl mb-8 changing-text" id="changing-text"></p>
             <div class="flex justify-center space-x-6">
-                <a href="/cdn-cgi/l/email-protection#d6a4b9beb7b8a5b7b2b7a6bea3bab396b1bbb7bfbaf8b5b9bb" target="_blank"
-                    rel="noopener noreferrer" class="hover:text-gray-300 transition">
+                <a id="email-link" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition">
                     <i class="fas fa-envelope text-3xl"></i>
                 </a>
+
                 <a href="https://github.com/rohansadaphule" target="_blank" rel="noopener noreferrer"
                     class="hover:text-gray-300 transition">
                     <i class="fab fa-github text-3xl"></i>
@@ -106,8 +111,7 @@
     <!-- Contact Section -->
     <footer id="contact" class="py-10 bg-gradient-to-r from-black to-gray-900 text-white text-center">
         <p class="text-2xl mb-4">Let's work together</p>
-        <p class="mb-4">+91 9028535439 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="64160b0c050a17050005140c110801240309050d084a070b09">[email&#160;protected]</a></p>
+        <p class="mb-4">+91 9028535439 · <span id="email-text"></span></p>
         <p class="mt-4">© 2025 Rohan Sadaphule. All rights reserved.</p>
     </footer>
 
