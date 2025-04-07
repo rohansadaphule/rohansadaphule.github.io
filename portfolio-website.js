@@ -49,7 +49,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Fetch GitHub projects (ignoring "rohansadaphule" repository and including website link below description)
 async function fetchProjects() {
   const username = "rohansadaphule"; // Your GitHub username
-  const projectsCount = 4; // Load top 4 projects (change to 3 if you prefer)
+  const projectsCount = 6; // Load top 4 projects (change to 3 if you prefer)
   try {
     const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=${projectsCount}`);
     if (!response.ok) throw new Error('Failed to fetch GitHub repos');
