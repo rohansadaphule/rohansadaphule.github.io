@@ -135,3 +135,22 @@ setInterval(updateText, 2000); // Change every 2 seconds
 
 // Call fetchProjects when the page loads
 window.onload = fetchProjects;
+
+// resume pop-up modal code
+function openPDF(pdfUrl) {
+  document.getElementById("pdfFrame").src = pdfUrl;
+  document.getElementById("pdfModal").style.display = "block";
+}
+
+function closePDF() {
+  document.getElementById("pdfModal").style.display = "none";
+  document.getElementById("pdfFrame").src = ""; // clear to stop PDF loading
+}
+
+// Close modal if clicked outside the content
+window.onclick = function (event) {
+  const modal = document.getElementById("pdfModal");
+  if (event.target === modal) {
+    closePDF();
+  }
+}
