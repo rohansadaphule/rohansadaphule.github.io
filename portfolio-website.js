@@ -154,3 +154,4 @@ window.onclick = function (event) {
     closePDF();
   }
 }
+
